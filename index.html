@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>EQUIPE ECHO</title>
+  <style>
+@import url('https://fonts.cdnfonts.com/css/ds-digital');
+</style>
+  <style>
+   body {
+  margin: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'DS-Digital', monospace;
+}
+
+.container {
+  position: relative;
+
+  /* Moldura */
+  padding: 15px;
+  border-radius: 12px;
+
+  background: linear-gradient(145deg, #2a2a2a, #0f0f0f);
+
+  box-shadow:
+    0 0 0 2px #1a1a1a,   /* borda externa */
+    0 0 20px rgba(0,0,0,0.8), /* sombra geral */
+    inset 0 0 10px rgba(255,255,255,0.05); /* leve brilho interno */
+}
+
+.bg {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+/* RELÓGIO */
+.clock {
+  position: absolute;
+
+  bottom: 11%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: 'DS-Digital', monospace;
+  font-size: 150px;
+
+  color: #ffffff;
+
+  letter-spacing: 5px;
+
+  /* brilho estilo LED */
+  text-shadow:
+  0 0 3px rgba(255,255,255,0.6),
+  0 0 8px rgba(255,255,255,0.3);
+}
+  </style>
+</head>
+
+<body>
+<body>
+
+  <div class="container">
+    <img src="fundo.png" class="bg">
+
+    <div class="clock" id="clock">00:00:00</div>
+  </div>
+
+  <script>
+    function atualizarRelogio() {
+      const agora = new Date();
+
+      let h = String(agora.getHours()).padStart(2, '0');
+      let m = String(agora.getMinutes()).padStart(2, '0');
+      let s = String(agora.getSeconds()).padStart(2, '0');
+
+      document.getElementById("clock").innerText = `${h}:${m}:${s}`;
+    }
+
+    setInterval(atualizarRelogio, 1000);
+    atualizarRelogio();
+  </script>
+
+</body>
+
+</body>
+</html>
